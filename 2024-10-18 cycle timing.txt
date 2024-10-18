@@ -116,7 +116,8 @@
 369 73  DRAW5   012    Draw (Pixel=0)
 369 73  DRAW6   013    Draw (Pixel=0)
 369 73  DRAW7   014    Draw (Pixel=0)
-369 74  READ0   ----
+369 73  DRAW7         *Pre-read [00007001]
+369 74  READ0   [00007001]
 369 74  DRAW0   015    Draw (Pixel=0)
 369 74  DRAW1   016    Draw (Pixel=0)
 369 74  DRAW2   017    Draw (Pixel=0)
@@ -125,579 +126,666 @@
 369 74  DRAW5   020    Draw (Pixel=0)
 369 74  DRAW6   021    Draw (Pixel=0)
 369 74  DRAW7   022    Draw (Pixel=0)
+369 74  READ7   [00007001] > C0
 369 75  READ0   ----
-369 75  DRAW0   023    Draw (Miss, will read)
-369 75  DRAW1   023    Read [00007010]
-369 76  READ0   [00007010]
-369 76  DRAW0   023    Draw (Pending read, will scan)
-369 76  DRAW1   024    Scan (Hit, scan continues)
-369 76  DRAW2   025    Scan (Hit, scan continues)
-369 76  DRAW3   026    Scan (Miss, will read)
-369 76  DRAW4   026    Read [00006010]
-369 76  READ7   [00007010] > C0
-369 77  READ0   [00006010]
-369 77  DRAW0   023    Draw (Pixel=0)
-369 77  DRAW1   024    Draw (Pixel=0)
-369 77  DRAW2   025    Draw (Pixel=0)
-369 77  DRAW3   026    Draw (Pending read, will scan)
-369 77  DRAW4   027    Scan (Miss, will read)
-369 77  DRAW5   027    Read [00005010]
-369 77  READ7   [00006010] > C0
-369 78  READ0   [00005010]
-369 78  DRAW0   026    Draw (Pixel=0)
-369 78  DRAW1   027    Draw (Pending read, will scan)
-369 78  DRAW2   028    Scan (Miss, will read)
-369 78  DRAW3   028    Read [00004010]
-369 78  READ7   [00005010] > C0
-369 79  READ0   [00004010]
-369 79  DRAW0   027    Draw (Pixel=0)
-369 79  DRAW1   028    Draw (Pending read, will scan)
-369 79  DRAW2   029    Scan (Miss, will read)
-369 79  DRAW3   029    Read [00003010]
-369 79  READ7   [00004010] > C0
-369 80  READ0   [00003010]
-369 80  DRAW0   028    Draw (Pixel=0)
-369 80  DRAW1   029    Draw (Pending read, will scan)
-369 80  DRAW2   030    Scan (Miss, will read)
-369 80  DRAW3   030    Read [00002010]
-369 80  READ7   [00003010] > C0
-369 81  READ0   [00002010]
-369 81  DRAW0   029    Draw (Pixel=0)
-369 81  DRAW1   030    Draw (Pending read, will scan)
-369 81  DRAW2   031    Scan (Miss, will read)
-369 81  DRAW3   031    Read [00001010]
-369 81  READ7   [00002010] > C0
-369 82  READ0   [00001010]
-369 82  DRAW0   030    Draw (Pixel=0)
-369 82  DRAW1   031    Draw (Pending read, will scan)
-369 82  DRAW2   032    Scan (Miss, will read)
-369 82  DRAW3   032    Read [00000021]
-369 82  READ7   [00001010] > C0
-369 83  READ0   [00000021]
-369 83  DRAW0   031    Draw (Pixel=0)
-369 83  DRAW1   032    Draw (Pending read, will scan)
-369 83  DRAW2   033    Scan (Hit, scan continues)
-369 83  DRAW3   034    Scan (Hit, scan continues)
-369 83  DRAW4   035    Scan (Hit, scan continues)
-369 83  DRAW5   036    Scan (Hit, scan continues)
-369 83  DRAW6   037    Scan (Hit, scan continues)
-369 83  DRAW7   038    Scan (Hit, scan continues)
-369 83  READ7   [00000021] > C0
-369 84  READ0   ----
-369 84  DRAW0   032    Draw (Pixel=0)
-369 84  DRAW1   033    Draw (Pixel=0)
-369 84  DRAW2   034    Draw (Pixel=0)
-369 84  DRAW3   035    Draw (Pixel=0)
-369 84  DRAW4   036    Draw (Pixel=0)
-369 84  DRAW5   037    Draw (Pixel=0)
-369 84  DRAW6   038    Draw (Pixel=0)
-369 84  DRAW7   039    Draw (Pixel=0)
+369 75  DRAW0   023    Draw (Pixel=0)
+369 75  DRAW1   024    Draw (Pixel=0)
+369 75  DRAW2   025    Draw (Pixel=0)
+369 75  DRAW3   026    Draw (Miss, will read)
+369 75  DRAW4   026    Read [00006001]
+369 76  READ0   [00006001]
+369 76  DRAW0   026    Draw (Pending read, will scan)
+369 76  DRAW1   027    Scan (Miss, will read)
+369 76  DRAW2   027    Read [00005001]
+369 76  READ7   [00006001] > C0
+369 77  READ0   [00005001]
+369 77  DRAW0   026    Draw (Pixel=0)
+369 77  DRAW1   027    Draw (Pending read, will scan)
+369 77  DRAW2   028    Scan (Miss, will read)
+369 77  DRAW3   028    Read [00004001]
+369 77  READ7   [00005001] > C0
+369 78  READ0   [00004001]
+369 78  DRAW0   027    Draw (Pixel=0)
+369 78  DRAW1   028    Draw (Pending read, will scan)
+369 78  DRAW2   029    Scan (Miss, will read)
+369 78  DRAW3   029    Read [00003001]
+369 78  READ7   [00004001] > C0
+369 79  READ0   [00003001]
+369 79  DRAW0   028    Draw (Pixel=0)
+369 79  DRAW1   029    Draw (Pending read, will scan)
+369 79  DRAW2   030    Scan (Miss, will read)
+369 79  DRAW3   030    Read [00002001]
+369 79  READ7   [00003001] > C0
+369 80  READ0   [00002001]
+369 80  DRAW0   029    Draw (Pixel=0)
+369 80  DRAW1   030    Draw (Pending read, will scan)
+369 80  DRAW2   031    Scan (Miss, will read)
+369 80  DRAW3   031    Read [00001001]
+369 80  READ7   [00002001] > C0
+369 81  READ0   [00001001]
+369 81  DRAW0   030    Draw (Pixel=0)
+369 81  DRAW1   031    Draw (Pending read, will scan)
+369 81  DRAW2   032    Scan (Miss, will read)
+369 81  DRAW3   032    Read [00000003]
+369 81  READ7   [00001001] > C0
+369 82  READ0   [00000003]
+369 82  DRAW0   031    Draw (Pixel=0)
+369 82  DRAW1   032    Draw (Pending read, will scan)
+369 82  DRAW2   033    Scan (Hit, scan continues)
+369 82  DRAW3   034    Scan (Hit, scan continues)
+369 82  DRAW4   035    Scan (Hit, scan continues)
+369 82  DRAW5   036    Scan (Hit, scan continues)
+369 82  DRAW6   037    Scan (Hit, scan continues)
+369 82  DRAW7   038    Scan (Hit, scan continues)
+369 82  READ7   [00000003] > C0
+369 83  READ0   ----
+369 83  DRAW0   032    Draw (Pixel=0)
+369 83  DRAW1   033    Draw (Pixel=0)
+369 83  DRAW2   034    Draw (Pixel=0)
+369 83  DRAW3   035    Draw (Pixel=0)
+369 83  DRAW4   036    Draw (Pixel=0)
+369 83  DRAW5   037    Draw (Pixel=0)
+369 83  DRAW6   038    Draw (Pixel=0)
+369 83  DRAW7   039    Draw (Pixel=0)
+369 83  DRAW7         *Pre-read [00000004]
+369 84  READ0   [00000004]
+369 84  DRAW0   040    Draw (Pixel=0)
+369 84  DRAW1   041    Draw (Pixel=0)
+369 84  DRAW2   042    Draw (Pixel=0)
+369 84  DRAW3   043    Draw (Pixel=0)
+369 84  DRAW4   044    Draw (Pixel=0)
+369 84  DRAW5   045    Draw (Pixel=0)
+369 84  DRAW6   046    Draw (Pixel=0)
+369 84  DRAW7   047    Draw (Pixel=0)
+369 84  READ7   [00000004] > C0
 369 85  READ0   ----
-369 85  DRAW0   040    Draw (Pixel=0)
-369 85  DRAW1   041    Draw (Pixel=0)
-369 85  DRAW2   042    Draw (Pixel=0)
-369 85  DRAW3   043    Draw (Pixel=0)
-369 85  DRAW4   044    Draw (Pixel=0)
-369 85  DRAW5   045    Draw (Pixel=0)
-369 85  DRAW6   046    Draw (Pixel=0)
-369 85  DRAW7   047    Draw (Pixel=0)
+369 85  DRAW0   048    Draw (Pixel=0)
+369 85  DRAW1   049    Draw (Pixel=0)
+369 85  DRAW2   050    Draw (Pixel=0)
+369 85  DRAW3   051    Draw (Pixel=0)
+369 85  DRAW4   052    Draw (Pixel=0)
+369 85  DRAW5   053    Draw (Pixel=0)
+369 85  DRAW6   054    Draw (Pixel=0)
+369 85  DRAW7   055    Draw (Pixel=0)
+369 85  DRAW7         *Pre-read [00000005]
 369 87  SOUND
-369 87  DRAW0   048    Draw (Miss, will read)
-369 87  DRAW1   048    Read [00000031]
+369 87  DRAW0   056    Draw (Pixel=0)
+369 87  DRAW1   057    Draw (Pixel=0)
+369 87  DRAW2   058    Draw (Pixel=0)
+369 87  DRAW3   059    Draw (Pixel=0)
+369 87  DRAW4   060    Draw (Pixel=0)
+369 87  DRAW5   061    Draw (Pixel=0)
+369 87  DRAW6   062    Draw (Pixel=0)
+369 87  DRAW7   063    Draw (Pixel=0)
+369 87  DRAW7         *Pre-read [00000005]
 000 00  LINE
-000 00  READ0   [00000031]
-000 00  DRAW0   048    Draw (Pending read, will scan)
-000 00  DRAW1   049    Scan (Hit, scan continues)
-000 00  DRAW2   050    Scan (Hit, scan continues)
-000 00  DRAW3   051    Scan (Hit, scan continues)
-000 00  DRAW4   052    Scan (Hit, scan continues)
-000 00  DRAW5   053    Scan (Hit, scan continues)
-000 00  DRAW6   054    Scan (Hit, scan continues)
-000 00  DRAW7   055    Scan (Hit, scan continues)
-000 00  READ7   [00000031] > C0
+000 00  READ0   [00000005]
+000 00  DRAW0   064    Draw (Pending read, will scan)
+000 00  DRAW1   065    Scan (Hit, scan continues)
+000 00  DRAW2   066    Scan (Hit, scan continues)
+000 00  DRAW3   067    Scan (Hit, scan continues)
+000 00  DRAW4   068    Scan (Hit, scan continues)
+000 00  DRAW5   069    Scan (Hit, scan continues)
+000 00  DRAW6   070    Scan (Hit, scan continues)
+000 00  DRAW7   071    Scan (Hit, scan continues)
+000 00  READ7   [00000005] > C0
 000 01  READ0   ----
-000 01  DRAW0   048    Draw (Pixel=0)
-000 01  DRAW1   049    Draw (Pixel=0)
-000 01  DRAW2   050    Draw (Pixel=0)
-000 01  DRAW3   051    Draw (Pixel=0)
-000 01  DRAW4   052    Draw (Pixel=0)
-000 01  DRAW5   053    Draw (Pixel=0)
-000 01  DRAW6   054    Draw (Pixel=0)
-000 01  DRAW7   055    Draw (Pixel=0)
-000 02  READ0   ----
-000 02  DRAW0   056    Draw (Pixel=0)
-000 02  DRAW1   057    Draw (Pixel=0)
-000 02  DRAW2   058    Draw (Pixel=0)
-000 02  DRAW3   059    Draw (Pixel=0)
-000 02  DRAW4   060    Draw (Pixel=0)
-000 02  DRAW5   061    Draw (Pixel=0)
-000 02  DRAW6   062    Draw (Pixel=0)
-000 02  DRAW7   063    Draw (Pixel=0)
+000 01  DRAW0   064    Draw (Pixel=0)
+000 01  DRAW1   065    Draw (Pixel=0)
+000 01  DRAW2   066    Draw (Pixel=0)
+000 01  DRAW3   067    Draw (Pixel=0)
+000 01  DRAW4   068    Draw (Pixel=0)
+000 01  DRAW5   069    Draw (Pixel=0)
+000 01  DRAW6   070    Draw (Pixel=0)
+000 01  DRAW7   071    Draw (Pixel=0)
+000 01  DRAW7         *Pre-read [00000006]
+000 02  READ0   [00000006]
+000 02  DRAW0   072    Draw (Pixel=0)
+000 02  DRAW1   073    Draw (Pixel=0)
+000 02  DRAW2   074    Draw (Pixel=0)
+000 02  DRAW3   075    Draw (Pixel=0)
+000 02  DRAW4   076    Draw (Pixel=0)
+000 02  DRAW5   077    Draw (Pixel=0)
+000 02  DRAW6   078    Draw (Pixel=0)
+000 02  DRAW7   079    Draw (Pixel=0)
+000 02  READ7   [00000006] > C0
 000 03  READ0   ----
-000 03  DRAW0   064    Draw (Miss, will read)
-000 03  DRAW1   064    Read [00000041]
-000 04  READ0   [00000041]
-000 04  DRAW0   064    Draw (Pending read, will scan)
-000 04  DRAW1   065    Scan (Hit, scan continues)
-000 04  DRAW2   066    Scan (Hit, scan continues)
-000 04  DRAW3   067    Scan (Hit, scan continues)
-000 04  DRAW4   068    Scan (Hit, scan continues)
-000 04  DRAW5   069    Scan (Hit, scan continues)
-000 04  DRAW6   070    Scan (Hit, scan continues)
-000 04  DRAW7   071    Scan (Hit, scan continues)
-000 04  READ7   [00000041] > C0
+000 03  DRAW0   080    Draw (Pixel=0)
+000 03  DRAW1   081    Draw (Pixel=0)
+000 03  DRAW2   082    Draw (Pixel=0)
+000 03  DRAW3   083    Draw (Pixel=0)
+000 03  DRAW4   084    Draw (Pixel=0)
+000 03  DRAW5   085    Draw (Pixel=0)
+000 03  DRAW6   086    Draw (Pixel=0)
+000 03  DRAW7   087    Draw (Pixel=0)
+000 03  DRAW7         *Pre-read [00000007]
+000 04  READ0   [00000007]
+000 04  DRAW0   088    Draw (Pixel=0)
+000 04  DRAW1   089    Draw (Pixel=0)
+000 04  DRAW2   090    Draw (Pixel=0)
+000 04  DRAW3   091    Draw (Pixel=0)
+000 04  DRAW4   092    Draw (Pixel=0)
+000 04  DRAW5   093    Draw (Pixel=0)
+000 04  DRAW6   094    Draw (Pixel=0)
+000 04  DRAW7   095    Draw (Pixel=0)
+000 04  READ7   [00000007] > C0
 000 05  READ0   ----
-000 05  DRAW0   064    Draw (Pixel=0)
-000 05  DRAW1   065    Draw (Pixel=0)
-000 05  DRAW2   066    Draw (Pixel=0)
-000 05  DRAW3   067    Draw (Pixel=0)
-000 05  DRAW4   068    Draw (Pixel=0)
-000 05  DRAW5   069    Draw (Pixel=0)
-000 05  DRAW6   070    Draw (Pixel=0)
-000 05  DRAW7   071    Draw (Pixel=0)
-000 06  READ0   ----
-000 06  DRAW0   072    Draw (Pixel=0)
-000 06  DRAW1   073    Draw (Pixel=0)
-000 06  DRAW2   074    Draw (Pixel=0)
-000 06  DRAW3   075    Draw (Pixel=0)
-000 06  DRAW4   076    Draw (Pixel=0)
-000 06  DRAW5   077    Draw (Pixel=0)
-000 06  DRAW6   078    Draw (Pixel=0)
-000 06  DRAW7   079    Draw (Pixel=0)
+000 05  DRAW0   096    Draw (Pixel=0)
+000 05  DRAW1   097    Draw (Pixel=0)
+000 05  DRAW2   098    Draw (Pixel=0)
+000 05  DRAW3   099    Draw (Pixel=0)
+000 05  DRAW4   100    Draw (Pixel=0)
+000 05  DRAW5   101    Draw (Pixel=0)
+000 05  DRAW6   102    Draw (Pixel=0)
+000 05  DRAW7   103    Draw (Pixel=0)
+000 05  DRAW7         *Pre-read [00000008]
+000 06  READ0   [00000008]
+000 06  DRAW0   104    Draw (Pixel=0)
+000 06  DRAW1   105    Draw (Pixel=0)
+000 06  DRAW2   106    Draw (Pixel=0)
+000 06  DRAW3   107    Draw (Pixel=0)
+000 06  DRAW4   108    Draw (Pixel=0)
+000 06  DRAW5   109    Draw (Pixel=0)
+000 06  DRAW6   110    Draw (Pixel=0)
+000 06  DRAW7   111    Draw (Pixel=0)
+000 06  READ7   [00000008] > C0
 000 07  READ0   ----
-000 07  DRAW0   080    Draw (Miss, will read)
-000 07  DRAW1   080    Read [00000051]
-000 08  READ0   [00000051]
-000 08  DRAW0   080    Draw (Pending read, will scan)
-000 08  DRAW1   081    Scan (Hit, scan continues)
-000 08  DRAW2   082    Scan (Hit, scan continues)
-000 08  DRAW3   083    Scan (Hit, scan continues)
-000 08  DRAW4   084    Scan (Hit, scan continues)
-000 08  DRAW5   085    Scan (Hit, scan continues)
-000 08  DRAW6   086    Scan (Hit, scan continues)
-000 08  DRAW7   087    Scan (Hit, scan continues)
-000 08  READ7   [00000051] > C0
+000 07  DRAW0   112    Draw (Pixel=0)
+000 07  DRAW1   113    Draw (Pixel=0)
+000 07  DRAW2   114    Draw (Pixel=0)
+000 07  DRAW3   115    Draw (Pixel=0)
+000 07  DRAW4   116    Draw (Pixel=0)
+000 07  DRAW5   117    Draw (Pixel=0)
+000 07  DRAW6   118    Draw (Pixel=0)
+000 07  DRAW7   119    Draw (Pixel=0)
+000 07  DRAW7         *Pre-read [00000009]
+000 08  READ0   [00000009]
+000 08  DRAW0   120    Draw (Pixel=0)
+000 08  DRAW1   121    Draw (Pixel=0)
+000 08  DRAW2   122    Draw (Pixel=0)
+000 08  DRAW3   123    Draw (Pixel=0)
+000 08  DRAW4   124    Draw (Pixel=0)
+000 08  DRAW5   125    Draw (Pixel=0)
+000 08  DRAW6   126    Draw (Pixel=0)
+000 08  DRAW7   127    Draw (Pixel=0)
+000 08  READ7   [00000009] > C0
 000 09  READ0   ----
-000 09  DRAW0   080    Draw (Pixel=0)
-000 09  DRAW1   081    Draw (Pixel=0)
-000 09  DRAW2   082    Draw (Pixel=0)
-000 09  DRAW3   083    Draw (Pixel=0)
-000 09  DRAW4   084    Draw (Pixel=0)
-000 09  DRAW5   085    Draw (Pixel=0)
-000 09  DRAW6   086    Draw (Pixel=0)
-000 09  DRAW7   087    Draw (Pixel=0)
-000 10  READ0   ----
-000 10  DRAW0   088    Draw (Pixel=0)
-000 10  DRAW1   089    Draw (Pixel=0)
-000 10  DRAW2   090    Draw (Pixel=0)
-000 10  DRAW3   091    Draw (Pixel=0)
-000 10  DRAW4   092    Draw (Pixel=0)
-000 10  DRAW5   093    Draw (Pixel=0)
-000 10  DRAW6   094    Draw (Pixel=0)
-000 10  DRAW7   095    Draw (Pixel=0)
+000 09  DRAW0   128    Draw (Pixel=0)
+000 09  DRAW1   129    Draw (Pixel=0)
+000 09  DRAW2   130    Draw (Pixel=0)
+000 09  DRAW3   131    Draw (Pixel=0)
+000 09  DRAW4   132    Draw (Pixel=0)
+000 09  DRAW5   133    Draw (Pixel=0)
+000 09  DRAW6   134    Draw (Pixel=0)
+000 09  DRAW7   135    Draw (Pixel=0)
+000 09  DRAW7         *Pre-read [0000000A]
+000 10  READ0   [0000000A]
+000 10  DRAW0   136    Draw (Pixel=0)
+000 10  DRAW1   137    Draw (Pixel=0)
+000 10  DRAW2   138    Draw (Pixel=0)
+000 10  DRAW3   139    Draw (Pixel=0)
+000 10  DRAW4   140    Draw (Pixel=0)
+000 10  DRAW5   141    Draw (Pixel=0)
+000 10  DRAW6   142    Draw (Pixel=0)
+000 10  DRAW7   143    Draw (Pixel=0)
+000 10  READ7   [0000000A] > C0
 000 11  READ0   ----
-000 11  DRAW0   096    Draw (Miss, will read)
-000 11  DRAW1   096    Read [00000061]
-000 12  READ0   [00000061]
-000 12  DRAW0   096    Draw (Pending read, will scan)
-000 12  DRAW1   097    Scan (Hit, scan continues)
-000 12  DRAW2   098    Scan (Hit, scan continues)
-000 12  DRAW3   099    Scan (Hit, scan continues)
-000 12  DRAW4   100    Scan (Hit, scan continues)
-000 12  DRAW5   101    Scan (Hit, scan continues)
-000 12  DRAW6   102    Scan (Hit, scan continues)
-000 12  DRAW7   103    Scan (Hit, scan continues)
-000 12  READ7   [00000061] > C0
+000 11  DRAW0   144    Draw (Pixel=0)
+000 11  DRAW1   145    Draw (Pixel=0)
+000 11  DRAW2   146    Draw (Pixel=0)
+000 11  DRAW3   147    Draw (Pixel=0)
+000 11  DRAW4   148    Draw (Pixel=0)
+000 11  DRAW5   149    Draw (Pixel=0)
+000 11  DRAW6   150    Draw (Pixel=0)
+000 11  DRAW7   151    Draw (Pixel=0)
+000 11  DRAW7         *Pre-read [0000000B]
+000 12  READ0   [0000000B]
+000 12  DRAW0   152    Draw (Pixel=0)
+000 12  DRAW1   153    Draw (Pixel=0)
+000 12  DRAW2   154    Draw (Pixel=0)
+000 12  DRAW3   155    Draw (Pixel=0)
+000 12  DRAW4   156    Draw (Pixel=0)
+000 12  DRAW5   157    Draw (Pixel=0)
+000 12  DRAW6   158    Draw (Pixel=0)
+000 12  DRAW7   159    Draw (Pixel=0)
+000 12  READ7   [0000000B] > C0
 000 13  READ0   ----
-000 13  DRAW0   096    Draw (Pixel=0)
-000 13  DRAW1   097    Draw (Pixel=0)
-000 13  DRAW2   098    Draw (Pixel=0)
-000 13  DRAW3   099    Draw (Pixel=0)
-000 13  DRAW4   100    Draw (Pixel=0)
-000 13  DRAW5   101    Draw (Pixel=0)
-000 13  DRAW6   102    Draw (Pixel=0)
-000 13  DRAW7   103    Draw (Pixel=0)
-000 14  READ0   ----
-000 14  DRAW0   104    Draw (Pixel=0)
-000 14  DRAW1   105    Draw (Pixel=0)
-000 14  DRAW2   106    Draw (Pixel=0)
-000 14  DRAW3   107    Draw (Pixel=0)
-000 14  DRAW4   108    Draw (Pixel=0)
-000 14  DRAW5   109    Draw (Pixel=0)
-000 14  DRAW6   110    Draw (Pixel=0)
-000 14  DRAW7   111    Draw (Pixel=0)
+000 13  DRAW0   160    Draw (Pixel=0)
+000 13  DRAW1   161    Draw (Pixel=0)
+000 13  DRAW2   162    Draw (Pixel=0)
+000 13  DRAW3   163    Draw (Pixel=0)
+000 13  DRAW4   164    Draw (Pixel=0)
+000 13  DRAW5   165    Draw (Pixel=0)
+000 13  DRAW6   166    Draw (Pixel=0)
+000 13  DRAW7   167    Draw (Pixel=0)
+000 13  DRAW7         *Pre-read [0000000C]
+000 14  READ0   [0000000C]
+000 14  DRAW0   168    Draw (Pixel=0)
+000 14  DRAW1   169    Draw (Pixel=0)
+000 14  DRAW2   170    Draw (Pixel=0)
+000 14  DRAW3   171    Draw (Pixel=0)
+000 14  DRAW4   172    Draw (Pixel=0)
+000 14  DRAW5   173    Draw (Pixel=0)
+000 14  DRAW6   174    Draw (Pixel=0)
+000 14  DRAW7   175    Draw (Pixel=0)
+000 14  READ7   [0000000C] > C0
 000 15  READ0   ----
-000 15  DRAW0   112    Draw (Miss, will read)
-000 15  DRAW1   112    Read [00000071]
-000 16  READ0   [00000071]
-000 16  DRAW0   112    Draw (Pending read, will scan)
-000 16  DRAW1   113    Scan (Hit, scan continues)
-000 16  DRAW2   114    Scan (Hit, scan continues)
-000 16  DRAW3   115    Scan (Hit, scan continues)
-000 16  DRAW4   116    Scan (Hit, scan continues)
-000 16  DRAW5   117    Scan (Hit, scan continues)
-000 16  DRAW6   118    Scan (Hit, scan continues)
-000 16  DRAW7   119    Scan (Hit, scan continues)
-000 16  READ7   [00000071] > C0
+000 15  DRAW0   176    Draw (Pixel=0)
+000 15  DRAW1   177    Draw (Pixel=0)
+000 15  DRAW2   178    Draw (Pixel=0)
+000 15  DRAW3   179    Draw (Pixel=0)
+000 15  DRAW4   180    Draw (Pixel=0)
+000 15  DRAW5   181    Draw (Pixel=0)
+000 15  DRAW6   182    Draw (Pixel=0)
+000 15  DRAW7   183    Draw (Pixel=0)
+000 15  DRAW7         *Pre-read [0000000D]
+000 16  READ0   [0000000D]
+000 16  DRAW0   184    Draw (Pixel=0)
+000 16  DRAW1   185    Draw (Pixel=0)
+000 16  DRAW2   186    Draw (Pixel=0)
+000 16  DRAW3   187    Draw (Pixel=0)
+000 16  DRAW4   188    Draw (Pixel=0)
+000 16  DRAW5   189    Draw (Pixel=0)
+000 16  DRAW6   190    Draw (Pixel=0)
+000 16  DRAW7   191    Draw (Pixel=0)
+000 16  READ7   [0000000D] > C0
 000 17  READ0   ----
-000 17  DRAW0   112    Draw (Pixel=0)
-000 17  DRAW1   113    Draw (Pixel=0)
-000 17  DRAW2   114    Draw (Pixel=0)
-000 17  DRAW3   115    Draw (Pixel=0)
-000 17  DRAW4   116    Draw (Pixel=0)
-000 17  DRAW5   117    Draw (Pixel=0)
-000 17  DRAW6   118    Draw (Pixel=0)
-000 17  DRAW7   119    Draw (Pixel=0)
-000 18  READ0   ----
-000 18  DRAW0   120    Draw (Pixel=0)
-000 18  DRAW1   121    Draw (Pixel=0)
-000 18  DRAW2   122    Draw (Pixel=0)
-000 18  DRAW3   123    Draw (Pixel=0)
-000 18  DRAW4   124    Draw (Pixel=0)
-000 18  DRAW5   125    Draw (Pixel=0)
-000 18  DRAW6   126    Draw (Pixel=0)
-000 18  DRAW7   127    Draw (Pixel=0)
+000 17  DRAW0   192    Draw (Pixel=0)
+000 17  DRAW1   193    Draw (Pixel=0)
+000 17  DRAW2   194    Draw (Pixel=0)
+000 17  DRAW3   195    Draw (Pixel=0)
+000 17  DRAW4   196    Draw (Pixel=0)
+000 17  DRAW5   197    Draw (Pixel=0)
+000 17  DRAW6   198    Draw (Pixel=0)
+000 17  DRAW7   199    Draw (Pixel=0)
+000 17  DRAW7         *Pre-read [0000000E]
+000 18  READ0   [0000000E]
+000 18  DRAW0   200    Draw (Pixel=0)
+000 18  DRAW1   201    Draw (Pixel=0)
+000 18  DRAW2   202    Draw (Pixel=0)
+000 18  DRAW3   203    Draw (Pixel=0)
+000 18  DRAW4   204    Draw (Pixel=0)
+000 18  DRAW5   205    Draw (Pixel=0)
+000 18  DRAW6   206    Draw (Pixel=0)
+000 18  DRAW7   207    Draw (Pixel=0)
+000 18  READ7   [0000000E] > C0
 000 19  READ0   ----
-000 19  DRAW0   128    Draw (Miss, will read)
-000 19  DRAW1   128    Read [00000081]
-000 20  READ0   [00000081]
-000 20  DRAW0   128    Draw (Pending read, will scan)
-000 20  DRAW1   129    Scan (Hit, scan continues)
-000 20  DRAW2   130    Scan (Hit, scan continues)
-000 20  DRAW3   131    Scan (Hit, scan continues)
-000 20  DRAW4   132    Scan (Hit, scan continues)
-000 20  DRAW5   133    Scan (Hit, scan continues)
-000 20  DRAW6   134    Scan (Hit, scan continues)
-000 20  DRAW7   135    Scan (Hit, scan continues)
-000 20  READ7   [00000081] > C0
+000 19  DRAW0   208    Draw (Pixel=0)
+000 19  DRAW1   209    Draw (Pixel=0)
+000 19  DRAW2   210    Draw (Pixel=0)
+000 19  DRAW3   211    Draw (Pixel=0)
+000 19  DRAW4   212    Draw (Pixel=0)
+000 19  DRAW5   213    Draw (Pixel=0)
+000 19  DRAW6   214    Draw (Pixel=0)
+000 19  DRAW7   215    Draw (Pixel=0)
+000 19  DRAW7         *Pre-read [0000000F]
+000 20  READ0   [0000000F]
+000 20  DRAW0   216    Draw (Pixel=0)
+000 20  DRAW1   217    Draw (Pixel=0)
+000 20  DRAW2   218    Draw (Pixel=0)
+000 20  DRAW3   219    Draw (Pixel=0)
+000 20  DRAW4   220    Draw (Pixel=0)
+000 20  DRAW5   221    Draw (Pixel=0)
+000 20  DRAW6   222    Draw (Pixel=0)
+000 20  DRAW7   223    Draw (Pixel=0)
+000 20  READ7   [0000000F] > C0
 000 21  READ0   ----
-000 21  DRAW0   128    Draw (Pixel=0)
-000 21  DRAW1   129    Draw (Pixel=0)
-000 21  DRAW2   130    Draw (Pixel=0)
-000 21  DRAW3   131    Draw (Pixel=0)
-000 21  DRAW4   132    Draw (Pixel=0)
-000 21  DRAW5   133    Draw (Pixel=0)
-000 21  DRAW6   134    Draw (Pixel=0)
-000 21  DRAW7   135    Draw (Pixel=0)
-000 22  READ0   ----
-000 22  DRAW0   136    Draw (Pixel=0)
-000 22  DRAW1   137    Draw (Pixel=0)
-000 22  DRAW2   138    Draw (Pixel=0)
-000 22  DRAW3   139    Draw (Pixel=0)
-000 22  DRAW4   140    Draw (Pixel=0)
-000 22  DRAW5   141    Draw (Pixel=0)
-000 22  DRAW6   142    Draw (Pixel=0)
-000 22  DRAW7   143    Draw (Pixel=0)
+000 21  DRAW0   224    Draw (Pixel=0)
+000 21  DRAW1   225    Draw (Pixel=0)
+000 21  DRAW2   226    Draw (Pixel=0)
+000 21  DRAW3   227    Draw (Pixel=0)
+000 21  DRAW4   228    Draw (Pixel=0)
+000 21  DRAW5   229    Draw (Pixel=0)
+000 21  DRAW6   230    Draw (Pixel=0)
+000 21  DRAW7   231    Draw (Pixel=0)
+000 21  DRAW7         *Pre-read [00000010]
+000 22  READ0   [00000010]
+000 22  DRAW0   232    Draw (Pixel=0)
+000 22  DRAW1   233    Draw (Pixel=0)
+000 22  DRAW2   234    Draw (Pixel=0)
+000 22  DRAW3   235    Draw (Pixel=0)
+000 22  DRAW4   236    Draw (Pixel=0)
+000 22  DRAW5   237    Draw (Pixel=0)
+000 22  DRAW6   238    Draw (Pixel=0)
+000 22  DRAW7   239    Draw (Pixel=0)
+000 22  READ7   [00000010] > C0
 000 23  READ0   ----
-000 23  DRAW0   144    Draw (Miss, will read)
-000 23  DRAW1   144    Read [00000091]
-000 24  READ0   [00000091]
-000 24  DRAW0   144    Draw (Pending read, will scan)
-000 24  DRAW1   145    Scan (Hit, scan continues)
-000 24  DRAW2   146    Scan (Hit, scan continues)
-000 24  DRAW3   147    Scan (Hit, scan continues)
-000 24  DRAW4   148    Scan (Hit, scan continues)
-000 24  DRAW5   149    Scan (Hit, scan continues)
-000 24  DRAW6   150    Scan (Hit, scan continues)
-000 24  DRAW7   151    Scan (Hit, scan continues)
-000 24  READ7   [00000091] > C0
+000 23  DRAW0   240    Draw (Pixel=0)
+000 23  DRAW1   241    Draw (Pixel=0)
+000 23  DRAW2   242    Draw (Pixel=0)
+000 23  DRAW3   243    Draw (Pixel=0)
+000 23  DRAW4   244    Draw (Pixel=0)
+000 23  DRAW5   245    Draw (Pixel=0)
+000 23  DRAW6   246    Draw (Pixel=0)
+000 23  DRAW7   247    Draw (Pixel=0)
+000 23  DRAW7         *Pre-read [00000011]
+000 24  READ0   [00000011]
+000 24  DRAW0   248    Draw (Pixel=0)
+000 24  DRAW1   249    Draw (Pixel=0)
+000 24  DRAW2   250    Draw (Pixel=0)
+000 24  DRAW3   251    Draw (Pixel=0)
+000 24  DRAW4   252    Draw (Pixel=0)
+000 24  DRAW5   253    Draw (Pixel=0)
+000 24  DRAW6   254    Draw (Pixel=0)
+000 24  DRAW7   255    Draw (Pixel=0)
+000 24  READ7   [00000011] > C0
 000 25  READ0   ----
-000 25  DRAW0   144    Draw (Pixel=0)
-000 25  DRAW1   145    Draw (Pixel=0)
-000 25  DRAW2   146    Draw (Pixel=0)
-000 25  DRAW3   147    Draw (Pixel=0)
-000 25  DRAW4   148    Draw (Pixel=0)
-000 25  DRAW5   149    Draw (Pixel=0)
-000 25  DRAW6   150    Draw (Pixel=0)
-000 25  DRAW7   151    Draw (Pixel=0)
-000 26  READ0   ----
-000 26  DRAW0   152    Draw (Pixel=0)
-000 26  DRAW1   153    Draw (Pixel=0)
-000 26  DRAW2   154    Draw (Pixel=0)
-000 26  DRAW3   155    Draw (Pixel=0)
-000 26  DRAW4   156    Draw (Pixel=0)
-000 26  DRAW5   157    Draw (Pixel=0)
-000 26  DRAW6   158    Draw (Pixel=0)
-000 26  DRAW7   159    Draw (Pixel=0)
+000 25  DRAW0   256    Draw (Pixel=0)
+000 25  DRAW1   257    Draw (Pixel=0)
+000 25  DRAW2   258    Draw (Pixel=0)
+000 25  DRAW3   259    Draw (Pixel=0)
+000 25  DRAW4   260    Draw (Pixel=0)
+000 25  DRAW5   261    Draw (Pixel=0)
+000 25  DRAW6   262    Draw (Pixel=0)
+000 25  DRAW7   263    Draw (Pixel=0)
+000 25  DRAW7         *Pre-read [00000012]
+000 26  READ0   [00000012]
+000 26  DRAW0   264    Draw (Pixel=0)
+000 26  DRAW1   265    Draw (Pixel=0)
+000 26  DRAW2   266    Draw (Pixel=0)
+000 26  DRAW3   267    Draw (Pixel=0)
+000 26  DRAW4   268    Draw (Pixel=0)
+000 26  DRAW5   269    Draw (Pixel=0)
+000 26  DRAW6   270    Draw (Pixel=0)
+000 26  DRAW7   271    Draw (Pixel=0)
+000 26  READ7   [00000012] > C0
 000 27  READ0   ----
-000 27  DRAW0   160    Draw (Miss, will read)
-000 27  DRAW1   160    Read [000000A1]
-000 28  READ0   [000000A1]
-000 28  DRAW0   160    Draw (Pending read, will scan)
-000 28  DRAW1   161    Scan (Hit, scan continues)
-000 28  DRAW2   162    Scan (Hit, scan continues)
-000 28  DRAW3   163    Scan (Hit, scan continues)
-000 28  DRAW4   164    Scan (Hit, scan continues)
-000 28  DRAW5   165    Scan (Hit, scan continues)
-000 28  DRAW6   166    Scan (Hit, scan continues)
-000 28  DRAW7   167    Scan (Hit, scan continues)
-000 28  READ7   [000000A1] > C0
+000 27  DRAW0   272    Draw (Pixel=0)
+000 27  DRAW1   273    Draw (Pixel=0)
+000 27  DRAW2   274    Draw (Pixel=0)
+000 27  DRAW3   275    Draw (Pixel=0)
+000 27  DRAW4   276    Draw (Pixel=0)
+000 27  DRAW5   277    Draw (Pixel=0)
+000 27  DRAW6   278    Draw (Pixel=0)
+000 27  DRAW7   279    Draw (Pixel=0)
+000 27  DRAW7         *Pre-read [00000013]
+000 28  READ0   [00000013]
+000 28  DRAW0   280    Draw (Pixel=0)
+000 28  DRAW1   281    Draw (Pixel=0)
+000 28  DRAW2   282    Draw (Pixel=0)
+000 28  DRAW3   283    Draw (Pixel=0)
+000 28  DRAW4   284    Draw (Pixel=0)
+000 28  DRAW5   285    Draw (Pixel=0)
+000 28  DRAW6   286    Draw (Pixel=0)
+000 28  DRAW7   287    Draw (Pixel=0)
+000 28  READ7   [00000013] > C0
 000 29  READ0   ----
-000 29  DRAW0   160    Draw (Pixel=0)
-000 29  DRAW1   161    Draw (Pixel=0)
-000 29  DRAW2   162    Draw (Pixel=0)
-000 29  DRAW3   163    Draw (Pixel=0)
-000 29  DRAW4   164    Draw (Pixel=0)
-000 29  DRAW5   165    Draw (Pixel=0)
-000 29  DRAW6   166    Draw (Pixel=0)
-000 29  DRAW7   167    Draw (Pixel=0)
-000 30  READ0   ----
-000 30  DRAW0   168    Draw (Pixel=0)
-000 30  DRAW1   169    Draw (Pixel=0)
-000 30  DRAW2   170    Draw (Pixel=0)
-000 30  DRAW3   171    Draw (Pixel=0)
-000 30  DRAW4   172    Draw (Pixel=0)
-000 30  DRAW5   173    Draw (Pixel=0)
-000 30  DRAW6   174    Draw (Pixel=0)
-000 30  DRAW7   175    Draw (Pixel=0)
+000 29  DRAW0   288    Draw (Pixel=0)
+000 29  DRAW1   289    Draw (Pixel=0)
+000 29  DRAW2   290    Draw (Pixel=0)
+000 29  DRAW3   291    Draw (Pixel=0)
+000 29  DRAW4   292    Draw (Pixel=0)
+000 29  DRAW5   293    Draw (Pixel=0)
+000 29  DRAW6   294    Draw (Pixel=0)
+000 29  DRAW7   295    Draw (Pixel=0)
+000 29  DRAW7         *Pre-read [00000014]
+000 30  READ0   [00000014]
+000 30  DRAW0   296    Draw (Pixel=0)
+000 30  DRAW1   297    Draw (Pixel=0)
+000 30  DRAW2   298    Draw (Pixel=0)
+000 30  DRAW3   299    Draw (Pixel=0)
+000 30  DRAW4   300    Draw (Pixel=0)
+000 30  DRAW5   301    Draw (Pixel=0)
+000 30  DRAW6   302    Draw (Pixel=0)
+000 30  DRAW7   303    Draw (Pixel=0)
+000 30  READ7   [00000014] > C0
 000 31  READ0   ----
-000 31  DRAW0   176    Draw (Miss, will read)
-000 31  DRAW1   176    Read [000000B1]
-000 32  READ0   [000000B1]
-000 32  DRAW0   176    Draw (Pending read, will scan)
-000 32  DRAW1   177    Scan (Hit, scan continues)
-000 32  DRAW2   178    Scan (Hit, scan continues)
-000 32  DRAW3   179    Scan (Hit, scan continues)
-000 32  DRAW4   180    Scan (Hit, scan continues)
-000 32  DRAW5   181    Scan (Hit, scan continues)
-000 32  DRAW6   182    Scan (Hit, scan continues)
-000 32  DRAW7   183    Scan (Hit, scan continues)
-000 32  READ7   [000000B1] > C0
+000 31  DRAW0   304    Draw (Pixel=0)
+000 31  DRAW1   305    Draw (Pixel=0)
+000 31  DRAW2   306    Draw (Pixel=0)
+000 31  DRAW3   307    Draw (Pixel=0)
+000 31  DRAW4   308    Draw (Pixel=0)
+000 31  DRAW5   309    Draw (Pixel=0)
+000 31  DRAW6   310    Draw (Pixel=0)
+000 31  DRAW7   311    Draw (Pixel=0)
+000 31  DRAW7         *Pre-read [00000015]
+000 32  READ0   [00000015]
+000 32  DRAW0   312    Draw (Pixel=0)
+000 32  DRAW1   313    Draw (Pixel=0)
+000 32  DRAW2   314    Draw (Pixel=0)
+000 32  DRAW3   315    Draw (Pixel=0)
+000 32  DRAW4   316    Draw (Pixel=0)
+000 32  DRAW5   317    Draw (Pixel=0)
+000 32  DRAW6   318    Draw (Pixel=0)
+000 32  DRAW7   319    Draw (Pixel=0)
+000 32  READ7   [00000015] > C0
 000 33  READ0   ----
-000 33  DRAW0   176    Draw (Pixel=0)
-000 33  DRAW1   177    Draw (Pixel=0)
-000 33  DRAW2   178    Draw (Pixel=0)
-000 33  DRAW3   179    Draw (Pixel=0)
-000 33  DRAW4   180    Draw (Pixel=0)
-000 33  DRAW5   181    Draw (Pixel=0)
-000 33  DRAW6   182    Draw (Pixel=0)
-000 33  DRAW7   183    Draw (Pixel=0)
-000 34  READ0   ----
-000 34  DRAW0   184    Draw (Pixel=0)
-000 34  DRAW1   185    Draw (Pixel=0)
-000 34  DRAW2   186    Draw (Pixel=0)
-000 34  DRAW3   187    Draw (Pixel=0)
-000 34  DRAW4   188    Draw (Pixel=0)
-000 34  DRAW5   189    Draw (Pixel=0)
-000 34  DRAW6   190    Draw (Pixel=0)
-000 34  DRAW7   191    Draw (Pixel=0)
+000 33  DRAW0   320    Draw (Pixel=0)
+000 33  DRAW1   321    Draw (Pixel=0)
+000 33  DRAW2   322    Draw (Pixel=0)
+000 33  DRAW3   323    Draw (Pixel=0)
+000 33  DRAW4   324    Draw (Pixel=0)
+000 33  DRAW5   325    Draw (Pixel=0)
+000 33  DRAW6   326    Draw (Pixel=0)
+000 33  DRAW7   327    Draw (Pixel=0)
+000 33  DRAW7         *Pre-read [00000016]
+000 34  READ0   [00000016]
+000 34  DRAW0   328    Draw (Pixel=0)
+000 34  DRAW1   329    Draw (Pixel=0)
+000 34  DRAW2   330    Draw (Pixel=0)
+000 34  DRAW3   331    Draw (Pixel=0)
+000 34  DRAW4   332    Draw (Pixel=0)
+000 34  DRAW5   333    Draw (Pixel=0)
+000 34  DRAW6   334    Draw (Pixel=0)
+000 34  DRAW7   335    Draw (Pixel=0)
+000 34  READ7   [00000016] > C0
 000 35  READ0   ----
-000 35  DRAW0   192    Draw (Miss, will read)
-000 35  DRAW1   192    Read [000000C1]
-000 36  READ0   [000000C1]
-000 36  DRAW0   192    Draw (Pending read, will scan)
-000 36  DRAW1   193    Scan (Hit, scan continues)
-000 36  DRAW2   194    Scan (Hit, scan continues)
-000 36  DRAW3   195    Scan (Hit, scan continues)
-000 36  DRAW4   196    Scan (Hit, scan continues)
-000 36  DRAW5   197    Scan (Hit, scan continues)
-000 36  DRAW6   198    Scan (Hit, scan continues)
-000 36  DRAW7   199    Scan (Hit, scan continues)
-000 36  READ7   [000000C1] > C0
+000 35  DRAW0   336    Draw (Pixel=0)
+000 35  DRAW1   337    Draw (Pixel=0)
+000 35  DRAW2   338    Draw (Pixel=0)
+000 35  DRAW3   339    Draw (Pixel=0)
+000 35  DRAW4   340    Draw (Pixel=0)
+000 35  DRAW5   341    Draw (Pixel=0)
+000 35  DRAW6   342    Draw (Pixel=0)
+000 35  DRAW7   343    Draw (Pixel=0)
+000 35  DRAW7         *Pre-read [00000017]
+000 36  READ0   [00000017]
+000 36  DRAW0   344    Draw (Pixel=0)
+000 36  DRAW1   345    Draw (Pixel=0)
+000 36  DRAW2   346    Draw (Pixel=0)
+000 36  DRAW3   347    Draw (Pixel=0)
+000 36  DRAW4   348    Draw (Pixel=0)
+000 36  DRAW5   349    Draw (Pixel=0)
+000 36  DRAW6   350    Draw (Pixel=0)
+000 36  DRAW7   351    Draw (Pixel=0)
+000 36  READ7   [00000017] > C0
 000 37  READ0   ----
-000 37  DRAW0   192    Draw (Pixel=0)
-000 37  DRAW1   193    Draw (Pixel=0)
-000 37  DRAW2   194    Draw (Pixel=0)
-000 37  DRAW3   195    Draw (Pixel=0)
-000 37  DRAW4   196    Draw (Pixel=0)
-000 37  DRAW5   197    Draw (Pixel=0)
-000 37  DRAW6   198    Draw (Pixel=0)
-000 37  DRAW7   199    Draw (Pixel=0)
-000 38  READ0   ----
-000 38  DRAW0   200    Draw (Pixel=0)
-000 38  DRAW1   201    Draw (Pixel=0)
-000 38  DRAW2   202    Draw (Pixel=0)
-000 38  DRAW3   203    Draw (Pixel=0)
-000 38  DRAW4   204    Draw (Pixel=0)
-000 38  DRAW5   205    Draw (Pixel=0)
-000 38  DRAW6   206    Draw (Pixel=0)
-000 38  DRAW7   207    Draw (Pixel=0)
+000 37  DRAW0   352    Draw (Pixel=0)
+000 37  DRAW1   353    Draw (Pixel=0)
+000 37  DRAW2   354    Draw (Pixel=0)
+000 37  DRAW3   355    Draw (Pixel=0)
+000 37  DRAW4   356    Draw (Pixel=0)
+000 37  DRAW5   357    Draw (Pixel=0)
+000 37  DRAW6   358    Draw (Pixel=0)
+000 37  DRAW7   359    Draw (Pixel=0)
+000 37  DRAW7         *Pre-read [00000018]
+000 38  READ0   [00000018]
+000 38  DRAW0   360    Draw (Pixel=0)
+000 38  DRAW1   361    Draw (Pixel=0)
+000 38  DRAW2   362    Draw (Pixel=0)
+000 38  DRAW3   363    Draw (Pixel=0)
+000 38  DRAW4   364    Draw (Pixel=0)
+000 38  DRAW5   365    Draw (Pixel=0)
+000 38  DRAW6   366    Draw (Pixel=0)
+000 38  DRAW7   367    Draw (Pixel=0)
+000 38  READ7   [00000018] > C0
 000 39  READ0   ----
-000 39  DRAW0   208    Draw (Miss, will read)
-000 39  DRAW1   208    Read [000000D1]
-000 40  READ0   [000000D1]
-000 40  DRAW0   208    Draw (Pending read, will scan)
-000 40  DRAW1   209    Scan (Hit, scan continues)
-000 40  DRAW2   210    Scan (Hit, scan continues)
-000 40  DRAW3   211    Scan (Hit, scan continues)
-000 40  DRAW4   212    Scan (Hit, scan continues)
-000 40  DRAW5   213    Scan (Hit, scan continues)
-000 40  DRAW6   214    Scan (Hit, scan continues)
-000 40  DRAW7   215    Scan (Hit, scan continues)
-000 40  READ7   [000000D1] > C0
+000 39  DRAW0   368    Draw (Pixel=0)
+000 39  DRAW1   369    Draw (Pixel=0)
+000 39  DRAW2   370    Draw (Pixel=0)
+000 39  DRAW3   371    Draw (Pixel=0)
+000 39  DRAW4   372    Draw (Pixel=0)
+000 39  DRAW5   373    Draw (Pixel=0)
+000 39  DRAW6   374    Draw (Pixel=0)
+000 39  DRAW7   375    Draw (Pixel=0)
+000 39  DRAW7         *Pre-read [00000019]
+000 40  READ0   [00000019]
+000 40  DRAW0   376    Draw (Pixel=0)
+000 40  DRAW1   377    Draw (Pixel=0)
+000 40  DRAW2   378    Draw (Pixel=0)
+000 40  DRAW3   379    Draw (Pixel=0)
+000 40  DRAW4   380    Draw (Pixel=0)
+000 40  DRAW5   381    Draw (Pixel=0)
+000 40  DRAW6   382    Draw (Pixel=0)
+000 40  DRAW7   383    Draw (Pixel=0)
+000 40  READ7   [00000019] > C0
 000 41  READ0   ----
-000 41  DRAW0   208    Draw (Pixel=0)
-000 41  DRAW1   209    Draw (Pixel=0)
-000 41  DRAW2   210    Draw (Pixel=0)
-000 41  DRAW3   211    Draw (Pixel=0)
-000 41  DRAW4   212    Draw (Pixel=0)
-000 41  DRAW5   213    Draw (Pixel=0)
-000 41  DRAW6   214    Draw (Pixel=0)
-000 41  DRAW7   215    Draw (Pixel=0)
-000 42  READ0   ----
-000 42  DRAW0   216    Draw (Pixel=0)
-000 42  DRAW1   217    Draw (Pixel=0)
-000 42  DRAW2   218    Draw (Pixel=0)
-000 42  DRAW3   219    Draw (Pixel=0)
-000 42  DRAW4   220    Draw (Pixel=0)
-000 42  DRAW5   221    Draw (Pixel=0)
-000 42  DRAW6   222    Draw (Pixel=0)
-000 42  DRAW7   223    Draw (Pixel=0)
+000 41  DRAW0   384    Draw (Pixel=0)
+000 41  DRAW1   385    Draw (Pixel=0)
+000 41  DRAW2   386    Draw (Pixel=0)
+000 41  DRAW3   387    Draw (Pixel=0)
+000 41  DRAW4   388    Draw (Pixel=0)
+000 41  DRAW5   389    Draw (Pixel=0)
+000 41  DRAW6   390    Draw (Pixel=0)
+000 41  DRAW7   391    Draw (Pixel=0)
+000 41  DRAW7         *Pre-read [0000001A]
+000 42  READ0   [0000001A]
+000 42  DRAW0   392    Draw (Pixel=0)
+000 42  DRAW1   393    Draw (Pixel=0)
+000 42  DRAW2   394    Draw (Pixel=0)
+000 42  DRAW3   395    Draw (Pixel=0)
+000 42  DRAW4   396    Draw (Pixel=0)
+000 42  DRAW5   397    Draw (Pixel=0)
+000 42  DRAW6   398    Draw (Pixel=0)
+000 42  DRAW7   399    Draw (Pixel=0)
+000 42  READ7   [0000001A] > C0
 000 43  READ0   ----
-000 43  DRAW0   224    Draw (Miss, will read)
-000 43  DRAW1   224    Read [000000E1]
-000 44  READ0   [000000E1]
-000 44  DRAW0   224    Draw (Pending read, will scan)
-000 44  DRAW1   225    Scan (Hit, scan continues)
-000 44  DRAW2   226    Scan (Hit, scan continues)
-000 44  DRAW3   227    Scan (Hit, scan continues)
-000 44  DRAW4   228    Scan (Hit, scan continues)
-000 44  DRAW5   229    Scan (Hit, scan continues)
-000 44  DRAW6   230    Scan (Hit, scan continues)
-000 44  DRAW7   231    Scan (Hit, scan continues)
-000 44  READ7   [000000E1] > C0
+000 43  DRAW0   400    Draw (Pixel=0)
+000 43  DRAW1   401    Draw (Pixel=0)
+000 43  DRAW2   402    Draw (Pixel=0)
+000 43  DRAW3   403    Draw (Pixel=0)
+000 43  DRAW4   404    Draw (Pixel=0)
+000 43  DRAW5   405    Draw (Pixel=0)
+000 43  DRAW6   406    Draw (Pixel=0)
+000 43  DRAW7   407    Draw (Pixel=0)
+000 43  DRAW7         *Pre-read [0000001B]
+000 44  READ0   [0000001B]
+000 44  DRAW0   408    Draw (Pixel=0)
+000 44  DRAW1   409    Draw (Pixel=0)
+000 44  DRAW2   410    Draw (Pixel=0)
+000 44  DRAW3   411    Draw (Pixel=0)
+000 44  DRAW4   412    Draw (Pixel=0)
+000 44  DRAW5   413    Draw (Pixel=0)
+000 44  DRAW6   414    Draw (Pixel=0)
+000 44  DRAW7   415    Draw (Pixel=0)
+000 44  READ7   [0000001B] > C0
 000 45  READ0   ----
-000 45  DRAW0   224    Draw (Pixel=0)
-000 45  DRAW1   225    Draw (Pixel=0)
-000 45  DRAW2   226    Draw (Pixel=0)
-000 45  DRAW3   227    Draw (Pixel=0)
-000 45  DRAW4   228    Draw (Pixel=0)
-000 45  DRAW5   229    Draw (Pixel=0)
-000 45  DRAW6   230    Draw (Pixel=0)
-000 45  DRAW7   231    Draw (Pixel=0)
-000 46  READ0   ----
-000 46  DRAW0   232    Draw (Pixel=0)
-000 46  DRAW1   233    Draw (Pixel=0)
-000 46  DRAW2   234    Draw (Pixel=0)
-000 46  DRAW3   235    Draw (Pixel=0)
-000 46  DRAW4   236    Draw (Pixel=0)
-000 46  DRAW5   237    Draw (Pixel=0)
-000 46  DRAW6   238    Draw (Pixel=0)
-000 46  DRAW7   239    Draw (Pixel=0)
+000 45  DRAW0   416    Draw (Pixel=0)
+000 45  DRAW1   417    Draw (Pixel=0)
+000 45  DRAW2   418    Draw (Pixel=0)
+000 45  DRAW3   419    Draw (Pixel=0)
+000 45  DRAW4   420    Draw (Pixel=0)
+000 45  DRAW5   421    Draw (Pixel=0)
+000 45  DRAW6   422    Draw (Pixel=0)
+000 45  DRAW7   423    Draw (Pixel=0)
+000 45  DRAW7         *Pre-read [0000001C]
+000 46  READ0   [0000001C]
+000 46  DRAW0   424    Draw (Pixel=0)
+000 46  DRAW1   425    Draw (Pixel=0)
+000 46  DRAW2   426    Draw (Pixel=0)
+000 46  DRAW3   427    Draw (Pixel=0)
+000 46  DRAW4   428    Draw (Pixel=0)
+000 46  DRAW5   429    Draw (Pixel=0)
+000 46  DRAW6   430    Draw (Pixel=0)
+000 46  DRAW7   431    Draw (Pixel=0)
+000 46  READ7   [0000001C] > C0
 000 47  READ0   ----
-000 47  DRAW0   240    Draw (Miss, will read)
-000 47  DRAW1   240    Read [000000F1]
-000 48  READ0   [000000F1]
-000 48  DRAW0   240    Draw (Pending read, will scan)
-000 48  DRAW1   241    Scan (Hit, scan continues)
-000 48  DRAW2   242    Scan (Hit, scan continues)
-000 48  DRAW3   243    Scan (Hit, scan continues)
-000 48  DRAW4   244    Scan (Hit, scan continues)
-000 48  DRAW5   245    Scan (Hit, scan continues)
-000 48  DRAW6   246    Scan (Hit, scan continues)
-000 48  DRAW7   247    Scan (Hit, scan continues)
-000 48  READ7   [000000F1] > C0
+000 47  DRAW0   432    Draw (Pixel=0)
+000 47  DRAW1   433    Draw (Pixel=0)
+000 47  DRAW2   434    Draw (Pixel=0)
+000 47  DRAW3   435    Draw (Pixel=0)
+000 47  DRAW4   436    Draw (Pixel=0)
+000 47  DRAW5   437    Draw (Pixel=0)
+000 47  DRAW6   438    Draw (Pixel=0)
+000 47  DRAW7   439    Draw (Pixel=0)
+000 47  DRAW7         *Pre-read [0000001D]
+000 48  READ0   [0000001D]
+000 48  DRAW0   440    Draw (Pixel=0)
+000 48  DRAW1   441    Draw (Pixel=0)
+000 48  DRAW2   442    Draw (Pixel=0)
+000 48  DRAW3   443    Draw (Pixel=0)
+000 48  DRAW4   444    Draw (Pixel=0)
+000 48  DRAW5   445    Draw (Pixel=0)
+000 48  DRAW6   446    Draw (Pixel=0)
+000 48  DRAW7   447    Draw (Pixel=0)
+000 48  READ7   [0000001D] > C0
 000 49  READ0   ----
-000 49  DRAW0   240    Draw (Pixel=0)
-000 49  DRAW1   241    Draw (Pixel=0)
-000 49  DRAW2   242    Draw (Pixel=0)
-000 49  DRAW3   243    Draw (Pixel=0)
-000 49  DRAW4   244    Draw (Pixel=0)
-000 49  DRAW5   245    Draw (Pixel=0)
-000 49  DRAW6   246    Draw (Pixel=0)
-000 49  DRAW7   247    Draw (Pixel=0)
-000 50  READ0   ----
-000 50  DRAW0   248    Draw (Pixel=0)
-000 50  DRAW1   249    Draw (Pixel=0)
-000 50  DRAW2   250    Draw (Pixel=0)
-000 50  DRAW3   251    Draw (Pixel=0)
-000 50  DRAW4   252    Draw (Pixel=0)
-000 50  DRAW5   253    Draw (Pixel=0)
-000 50  DRAW6   254    Draw (Pixel=0)
-000 50  DRAW7   255    Draw (Pixel=0)
+000 49  DRAW0   448    Draw (Pixel=0)
+000 49  DRAW1   449    Draw (Pixel=0)
+000 49  DRAW2   450    Draw (Pixel=0)
+000 49  DRAW3   451    Draw (Pixel=0)
+000 49  DRAW4   452    Draw (Pixel=0)
+000 49  DRAW5   453    Draw (Pixel=0)
+000 49  DRAW6   454    Draw (Pixel=0)
+000 49  DRAW7   455    Draw (Pixel=0)
+000 49  DRAW7         *Pre-read [0000001E]
+000 50  READ0   [0000001E]
+000 50  DRAW0   456    Draw (Pixel=0)
+000 50  DRAW1   457    Draw (Pixel=0)
+000 50  DRAW2   458    Draw (Pixel=0)
+000 50  DRAW3   459    Draw (Pixel=0)
+000 50  DRAW4   460    Draw (Pixel=0)
+000 50  DRAW5   461    Draw (Pixel=0)
+000 50  DRAW6   462    Draw (Pixel=0)
+000 50  DRAW7   463    Draw (Pixel=0)
+000 50  READ7   [0000001E] > C0
 000 51  READ0   ----
-000 51  DRAW0   256    Draw (Miss, will read)
-000 51  DRAW1   256    Read [00000101]
-000 52  READ0   [00000101]
-000 52  DRAW0   256    Draw (Pending read, will scan)
-000 52  DRAW1   257    Scan (Hit, scan continues)
-000 52  DRAW2   258    Scan (Hit, scan continues)
-000 52  DRAW3   259    Scan (Hit, scan continues)
-000 52  DRAW4   260    Scan (Hit, scan continues)
-000 52  DRAW5   261    Scan (Hit, scan continues)
-000 52  DRAW6   262    Scan (Hit, scan continues)
-000 52  DRAW7   263    Scan (Hit, scan continues)
-000 52  READ7   [00000101] > C0
+000 51  DRAW0   464    Draw (Pixel=0)
+000 51  DRAW1   465    Draw (Pixel=0)
+000 51  DRAW2   466    Draw (Pixel=0)
+000 51  DRAW3   467    Draw (Pixel=0)
+000 51  DRAW4   468    Draw (Pixel=0)
+000 51  DRAW5   469    Draw (Pixel=0)
+000 51  DRAW6   470    Draw (Pixel=0)
+000 51  DRAW7   471    Draw (Pixel=0)
+000 51  DRAW7         *Pre-read [0000001F]
+000 52  READ0   [0000001F]
+000 52  DRAW0   472    Draw (Pixel=0)
+000 52  DRAW1   473    Draw (Pixel=0)
+000 52  DRAW2   474    Draw (Pixel=0)
+000 52  DRAW3   475    Draw (Pixel=0)
+000 52  DRAW4   476    Draw (Pixel=0)
+000 52  DRAW5   477    Draw (Pixel=0)
+000 52  DRAW6   478    Draw (Pixel=0)
+000 52  DRAW7   479    Draw (Pixel=0)
+000 52  READ7   [0000001F] > C0
 000 53  READ0   ----
-000 53  DRAW0   256    Draw (Pixel=0)
-000 53  DRAW1   257    Draw (Pixel=0)
-000 53  DRAW2   258    Draw (Pixel=0)
-000 53  DRAW3   259    Draw (Pixel=0)
-000 53  DRAW4   260    Draw (Pixel=0)
-000 53  DRAW5   261    Draw (Pixel=0)
-000 53  DRAW6   262    Draw (Pixel=0)
-000 53  DRAW7   263    Draw (Pixel=0)
-000 54  READ0   ----
-000 54  DRAW0   264    Draw (Pixel=0)
-000 54  DRAW1   265    Draw (Pixel=0)
-000 54  DRAW2   266    Draw (Pixel=0)
-000 54  DRAW3   267    Draw (Pixel=0)
-000 54  DRAW4   268    Draw (Pixel=0)
-000 54  DRAW5   269    Draw (Pixel=0)
-000 54  DRAW6   270    Draw (Pixel=0)
-000 54  DRAW7   271    Draw (Pixel=0)
+000 53  DRAW0   480    Draw (Pixel=0)
+000 53  DRAW1   481    Draw (Pixel=0)
+000 53  DRAW2   482    Draw (Pixel=0)
+000 53  DRAW3   483    Draw (Pixel=0)
+000 53  DRAW4   484    Draw (Pixel=0)
+000 53  DRAW5   485    Draw (Pixel=0)
+000 53  DRAW6   486    Draw (Pixel=0)
+000 53  DRAW7   487    Draw (Pixel=0)
+000 53  DRAW7         *Pre-read [00000020]
+000 54  READ0   [00000020]
+000 54  DRAW0   488    Draw (Pixel=0)
+000 54  DRAW1   489    Draw (Pixel=0)
+000 54  DRAW2   490    Draw (Pixel=0)
+000 54  DRAW3   491    Draw (Pixel=0)
+000 54  DRAW4   492    Draw (Pixel=0)
+000 54  DRAW5   493    Draw (Pixel=0)
+000 54  DRAW6   494    Draw (Pixel=0)
+000 54  DRAW7   495    Draw (Pixel=0)
+000 54  READ7   [00000020] > C0
 000 55  READ0   ----
-000 55  DRAW0   272    Draw (Miss, will read)
-000 55  DRAW1   272    Read [00000111]
-000 56  READ0   [00000111]
-000 56  DRAW0   272    Draw (Pending read, will scan)
-000 56  DRAW1   273    Scan (Hit, scan continues)
-000 56  DRAW2   274    Scan (Hit, scan continues)
-000 56  DRAW3   275    Scan (Hit, scan continues)
-000 56  DRAW4   276    Scan (Hit, scan continues)
-000 56  DRAW5   277    Scan (Hit, scan continues)
-000 56  DRAW6   278    Scan (Hit, scan continues)
-000 56  DRAW7   279    Scan (Hit, scan continues)
-000 56  READ7   [00000111] > C0
-000 57  READ0   ----
-000 57  DRAW0   272    Draw (Pixel=0)
-000 57  DRAW1   273    Draw (Pixel=0)
-000 57  DRAW2   274    Draw (Pixel=0)
-000 57  DRAW3   275    Draw (Pixel=0)
-000 57  DRAW4   276    Draw (Pixel=0)
-000 57  DRAW5   277    Draw (Pixel=0)
-000 57  DRAW6   278    Draw (Pixel=0)
-000 57  DRAW7   279    Draw (Pixel=0)
-000 58  READ0   ----
-000 58  DRAW0   280    Draw (Pixel=0)
-000 58  DRAW1   281    Draw (Pixel=0)
-000 58  DRAW2   282    Draw (Pixel=0)
-000 58  DRAW3   283    Draw (Pixel=0)
-000 58  DRAW4   284    Draw (Pixel=0)
-000 58  DRAW5   285    Draw (Pixel=0)
-000 58  DRAW6   286    Draw (Pixel=0)
-000 58  DRAW7   287    Draw (Pixel=0)
-000 59  READ0   ----
-000 59  DRAW0   288    Draw (Miss, will read)
-000 59  DRAW1   288    Read [00000121]
-000 60  READ0   [00000121]
-000 60  DRAW0   288    Draw (Pending read, will scan)
-000 60  DRAW1   289    Scan (Hit, scan continues)
-000 60  DRAW2   290    Scan (Hit, scan continues)
-000 60  DRAW3   291    Scan (Hit, scan continues)
-000 60  DRAW4   292    Scan (Hit, scan continues)
-000 60  DRAW5   293    Scan (Hit, scan continues)
-000 60  DRAW6   294    Scan (Hit, scan continues)
-000 60  DRAW7   295    Scan (Hit, scan continues)
-000 60  READ7   [00000121] > C0
-000 61  READ0   ----
-000 61  DRAW0   288    Draw (Pixel=0)
-000 61  DRAW1   289    Draw (Pixel=0)
-000 61  DRAW2   290    Draw (Pixel=0)
-000 61  DRAW3   291    Draw (Pixel=0)
-000 61  DRAW4   292    Draw (Pixel=0)
-000 61  DRAW5   293    Draw (Pixel=0)
-000 61  DRAW6   294    Draw (Pixel=0)
-000 61  DRAW7   295    Draw (Pixel=0)
-000 62  READ0   ----
-000 62  DRAW0   296    Draw (Pixel=0)
-000 62  DRAW1   297    Draw (Pixel=0)
-000 62  DRAW2   298    Draw (Pixel=0)
-000 62  DRAW3   299    Draw (Pixel=0)
-000 62  DRAW4   300    Draw (Pixel=0)
-000 62  DRAW5   301    Draw (Pixel=0)
-000 62  DRAW6   302    Draw (Pixel=0)
-000 62  DRAW7   303    Draw (Pixel=0)
-000 63  READ0   ----
-000 63  DRAW0   304    Draw (Miss, will read)
-000 63  DRAW1   304    Read [00000131]
+000 55  DRAW0   496    Draw (Pixel=0)
+000 55  DRAW1   497    Draw (Pixel=0)
+000 55  DRAW2   498    Draw (Pixel=0)
+000 55  DRAW3   499    Draw (Pixel=0)
+000 55  DRAW4   500    Draw (Pixel=0)
+000 55  DRAW5   501    Draw (Pixel=0)
+000 55  DRAW6   502    Draw (Pixel=0)
+000 55  DRAW7   503    Draw (Pixel=0)
+000 55  DRAW7         *Pre-read [00000021]
+000 56  READ0   [00000021]
+000 56  DRAW0   504    Draw (Pixel=0)
+000 56  DRAW1   505    Draw (Pixel=0)
+000 56  DRAW2   506    Draw (Pixel=0)
+000 56  DRAW3   507    Draw (Pixel=0)
+000 56  DRAW4   508    Draw (Pixel=0)
+000 56  DRAW5   509    Draw (Pixel=0)
+000 56  DRAW6   510    Draw (Pixel=0)
+000 56  DRAW7   511    Draw (Pixel=0)
+000 56  READ7   [00000021] > C0
